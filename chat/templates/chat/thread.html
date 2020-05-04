@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<h3> {% if user != object.first %}{{ object.first }}{% else %}{{ object.second }}{% endif %}</h3>
+<h3> {% if user != object.first %} <strong> {{ object.first }} </strong>  {% else %} <strong>  {{ object.second }} </strong> {% endif %}</h3>
 {{username}}
 {{user.username}}
 <ul style=" list-style-type: none;" id='chat-items'>

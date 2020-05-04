@@ -1,6 +1,6 @@
 @echo off
 
-set "VIRTUAL_ENV=C:\Users\student\Desktop\Zoomala"
+set "VIRTUAL_ENV=C:\Users\student\Desktop\ZoomalaL"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"

@@ -48,10 +48,11 @@
           </div>
           <div class="col-sm-4 col-md-4">
               <blockquote>
-                  <p>{{profile.user.username}} </p> <small><cite title="Source Title">{{profile.location}}  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+                  <p>{{profile.user.username}} </p> {% if profile.location %}<small><cite title="Source Title">{{profile.location}}  <i class="glyphicon glyphicon-map-marker"></i></cite></small>{% endif %}
               </blockquote>
               <p> <i class="glyphicon glyphicon-envelope"></i> {{profile.user.email}}
                   <br/> 
+                  <button><a href = {% url 'chats:thread' profile.user.username %}> Send Message </a></button>
           </div>
 
             
