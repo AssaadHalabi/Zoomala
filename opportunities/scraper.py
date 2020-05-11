@@ -10,7 +10,7 @@ from datetime import datetime
 tags = ["Architecture", "Engineering", "Arts", "Design", "Entertainment", "Sports", "Media", "Building", "Grounds", "Cleaning", "Maintenance", "Business", "Financial", "Operations", "Community", "Social", "Computer", "Mathematical", "Construction", "Extraction", "Education", "Training", "Library", "Farming", "Fishing", "Forestry", "Food", "Preparation", "Serving", "Related", "Healthcare", "Practitioners", "Technical", "Healthcare", "Support", "Installation", "Maintenance", "Repair", "Legal", "Life", "Physical", "Social", "Science", "Management", "Military", "Office", "Administrative", "Support", "Personal Care", "Service", "Production", "Protective", "Sales", "Related"]
 
 
-def scrape(search):
+def scraping(search):
     
     URL = "https://www.indeed.com/jobs?q={}".format(search)
     
@@ -24,7 +24,7 @@ def scrape(search):
     return soup
 
 
-def scrapingAndPopulating(search, numelems,random):
+def scrapingAndPopulating(search, numelems,random, scrape):
     titles =  extract_job_title_from_result(scrape(search), numelems,random)
     links = extract_job_link_from_result(scrape(search),numelems,random)
     locations =extract_location_from_result(scrape(search),numelems,random)
@@ -39,7 +39,7 @@ def scrapingAndPopulating(search, numelems,random):
                 raise IntegrityError
             Opportunity.objects.create(title = Title, link= Link, location = Location, company = Company )
         except IntegrityError:
-            scrapingAndPopulating(search+ ("{}".format("jt=parttime")), numelems, random)
+            scrapingAndPopulating(search+ ("{}".format("jt=parttime")), numelems, random, scrape)
         except Exception as e:
             print(e)
             print("Opportunity could not be created due to an non-duplicates exception")
@@ -51,7 +51,7 @@ def scraper(*args, **kwargs):
     # tagBeingPopulatedWithJobs = tags[i]
         
     tagBeingPopulatedWithJobs =kwargs["tags"][kwargs["rando"](0,len(kwargs["tags"])-1)]
-    kwargs["scrapingAndPopulatingDb"](tagBeingPopulatedWithJobs, kwargs["numelem"](1,4), kwargs["selectRandom"])
+    kwargs["scrapingAndPopulatingDb"](tagBeingPopulatedWithJobs, kwargs["numelem"](1,2), kwargs["selectRandom"], kwargs["scraping"])
     # print("Database being populated with new opportunities from Indeed")
     
         

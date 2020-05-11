@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block opportunities %}
+
+
+<form method="POST" action= '.'>{% csrf_token %}
+    <h1>Do you really want to delete the job posting: <strong>{{object.title}} ? </strong> </h1>
+    <br> <br><br> <br>
+    <br> <br><br> <br>
+    <input class='btn btn-danger' type="submit" value="Yes">       <a href='../'><button class='btn btn-success'>Cancel</button></a> 
+</form>
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+{% endblock opportunities %}

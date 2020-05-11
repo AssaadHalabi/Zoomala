@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block opportunities %}
+
+
+<form method="post" action= {% url 'opportunities:createOpportunities' %}>{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create Job">
+</form>
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+{% include 'components/footer.html' %}
+{% endblock opportunities %}

@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _
 from PIL import Image
+
 User = settings.AUTH_USER_MODEL
 
 

@@ -153,9 +153,11 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "/zoomala-web/build/static"),
+    os.path.join(BASE_DIR, "static/js")
     # os.path.join(BASE_DIR, 'mentee/static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "static-root")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 CORS_ORIGIN_ALLOW_ALL = True # any website has access to my api
