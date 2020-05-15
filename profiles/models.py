@@ -75,6 +75,13 @@ class Profile(models.Model):
             img.save(self.image.path)
 
     objects = ProfileManager()
+    class Meta:
+            indexes = [
+                models.Index(fields=['bio'], name='bio_idx'),
+                models.Index(fields=['location'], name='profile_location_idx'),
+                models.Index(fields=['-timestamp'], name='prof_time_desc_idx'),
+
+            ]
 
 def user_did_save(sender, instance, created, *args, **kwargs):
     if created:
@@ -83,3 +90,4 @@ def user_did_save(sender, instance, created, *args, **kwargs):
 post_save.connect(user_did_save, sender=User)
 
 # after the user logs in -> verify profile
+    

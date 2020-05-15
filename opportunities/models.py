@@ -71,7 +71,15 @@ class Opportunity(models.Model):
         return reverse("opportunities:detailOpportunity", kwargs={"id": self.id})
     
 
+    class Meta:
+        indexes = [
+            models.Index(fields=['title'], name='title_idx'),
+            models.Index(fields=['company'], name='company_idx'),
+            models.Index(fields=['location'], name='location_idx'),
+            models.Index(fields=['-date'], name='date_desce_idx'),
+            models.Index(fields=['jobType'], name='jobType_idx'),
 
+        ]
 
 
     

@@ -42,9 +42,22 @@ class Thread(models.Model):
     
     objects      = ThreadManager()
 
+    class Meta:
+        indexes = [
+            models.Index(fields=['first'], name='thread_first_idx'),
+            models.Index(fields=['second'], name='thread_second_idx'),
+            models.Index(fields=['-timestamp'], name='thread_time_desc_idx'),
+        ]
+
 
 class ChatMessage(models.Model):
     thread      = models.ForeignKey(Thread, null=True, blank=True, on_delete=models.SET_NULL)
     user        = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='sender', on_delete=models.CASCADE)
     message     = models.TextField()
     timestamp   = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['thread'], name='thread_idx'),
+            models.Index(fields=['-timestamp'], name='time_desc_idx'),
+        ]

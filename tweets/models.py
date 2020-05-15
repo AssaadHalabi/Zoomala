@@ -47,6 +47,12 @@ class Tweet(models.Model):
     
     class Meta:
         ordering = ['-id']
+        
+        indexes = [
+            models.Index(fields=['content'], name='content_idx'),
+            models.Index(fields=['-timestamp'], name='tweet_time_desc_idx'),
+
+        ]
     
     @property
     def is_retweet(self):
