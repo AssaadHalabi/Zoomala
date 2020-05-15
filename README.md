@@ -34,39 +34,18 @@
         </p>
 
         <strong>What did we use:</strong>
-        <p>
-          <ul>
-            <li>Python</li>
-            <li>Django Rest Framwork/crispy-form</li>
-            <li>Crispyform</li>
-            <li>Bootstrap</li>
-            <li>CSS</li>
-            <Li>JavaScript</Li> 
-            <li>React</li>
-            <li>PostgreSQL</li>
-            <li>Heroku</li>
 
-          </ul>
-        </p>
-
-          </div>
-        </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-  <!-- /.container -->
+            Python
+            Django Rest Framwork/crispy-form
+            Crispyform
+            Bootstrap
+            CSS
+            JavaScript
+            React
+            PostgreSQL
+            Heroku
 
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
 
 
 
